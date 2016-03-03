@@ -33,7 +33,8 @@ traverse.explode = visitors.explode;
 
 traverse.NodePath = require("./path");
 traverse.Scope    = require("./scope");
-traverse.Hub      = require("./hub");
+traverse.Hub      = require("./hub")
+traverse.cache    = require("./path/cache");
 
 traverse.cheap = function (node, enter) {
   if (!node) return;
@@ -81,6 +82,8 @@ traverse.clearNode = function (node) {
   for (let key in node) {
     if (key[0] === "_" && node[key] != null) node[key] = undefined;
   }
+
+  traverse.cache.delete(node);
 
   let syms = Object.getOwnPropertySymbols(node);
   for (let sym of syms) {
