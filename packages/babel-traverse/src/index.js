@@ -33,7 +33,7 @@ traverse.explode = visitors.explode;
 
 traverse.NodePath = require("./path");
 traverse.Scope    = require("./scope");
-traverse.Hub      = require("./hub")
+traverse.Hub      = require("./hub");
 traverse.cache    = require("./path/cache");
 
 traverse.cheap = function (node, enter) {
