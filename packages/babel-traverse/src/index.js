@@ -83,7 +83,7 @@ traverse.clearNode = function (node) {
     if (key[0] === "_" && node[key] != null) node[key] = undefined;
   }
 
-  traverse.cache.delete(node);
+  traverse.cache.path.delete(node);
 
   let syms = Object.getOwnPropertySymbols(node);
   for (let sym of syms) {
